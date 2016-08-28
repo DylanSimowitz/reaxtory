@@ -1,0 +1,19 @@
+{
+  "name": "reaxtory",
+  "version": "1.0.0",
+  "description": "Wordpress theme built with React and WordPress REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToxicSalt/reaxtory.git"
+  },
+  "author": "Dylan Simowitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ToxicSalt/reaxtory/issues"
+  },
+  "homepage": "https://github.com/ToxicSalt/reaxtory#readme"
+}
