@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title><?php bloginfo('name') ?></title>
-  </head>
-  <body>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-  </body>
+	<?php wp_head(); ?>
+</head>
+<div id="root">
+
+</div>
+<script type="text/javascript" src="bundle.js"></script>
 </html>
