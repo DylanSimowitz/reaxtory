@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+const postcssImport = require('postcss-import');
 
 module.exports = {
   context: path.join(__dirname, '../src'),
@@ -15,7 +18,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.css$/,
-      loaders: ['style', 'css']
+      loader: "style-loader!css-loader?modules&importLoaders=1!postcss-loader"
     }, {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
@@ -23,7 +26,10 @@ module.exports = {
     }, {
       test: /\.json$/,
       loaders: ['json']
-    } ],
+    }],
+  },
+  postcss: function(webpack) {
+    return [postcssImport({addDependencyTo: webpack}),precss, autoprefixer];
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],

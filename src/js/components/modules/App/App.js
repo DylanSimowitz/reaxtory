@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import BackgroundVideo from '../BackgroundVideo';
+import styles from './App.css';
+
 import wpapi from 'wpapi'
 
 const wp = new wpapi({endpoint:'http://baxtory.dev/wp-json'})
@@ -28,6 +31,9 @@ export default class App extends Component {
   }
   render() {
     const {posts} = this.state
+    return(
+      <BackgroundVideo src="app/uploads/2016/08/Ink-in-Water-Background-720p-pGbIOC83-So.mp4"/>
+    )
     return (
       <ul>
         {
