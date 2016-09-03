@@ -18,7 +18,15 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.css$/,
+      include: /src/,
       loader: "style-loader!css-loader?modules&importLoaders=1!postcss-loader"
+    }, {
+      test: /\.css$/,
+      include: /node_modules/,
+      loaders: [
+        'style',
+        'css'
+      ]
     }, {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
@@ -29,12 +37,14 @@ module.exports = {
     }],
   },
   postcss: function(webpack) {
-    return [postcssImport({addDependencyTo: webpack}),precss, autoprefixer];
+    return [postcssImport({
+      addDependencyTo: webpack
+    }), precss, autoprefixer];
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
     modules: [
-      path.resolve('./src'),
+      path.resolve('./src/js'),
       'node_modules'
     ]
   },

@@ -1,0 +1,24 @@
+.navigation {
+  background-color: #444;
+  font-family: 'Bungee', cursive;
+  font-size: 2em;
+  ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    li {
+
+    }
+  }
+}
+.link {
+  color: #d9c301;
+  text-decoration: none;
+  &:hover {
+    color: green;
+  }
+}
+.active {
+  text-decoration: underline;
+}

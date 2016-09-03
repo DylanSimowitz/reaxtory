@@ -1,23 +1,31 @@
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/modules/App';
+import App from 'components/layout/App';
+import { Provider } from 'mobx-react';
+import UiStore from 'stores/UI';
+import PostStore from 'stores/Post';
+
+const uiStore = new UiStore()
+const postStore = new PostStore(uiStore)
 
 const rootEl = document.getElementById('root');
 ReactDOM.render(
   <AppContainer>
-    <App />
+    <Provider uiStore={uiStore} postStore={postStore}>
+      <App/>
+    </Provider>
   </AppContainer>,
   rootEl
 );
 
 if (module.hot) {
-  module.hot.accept('./components/modules/App', () => {
-    // If you use Webpack 2 in ES modules mode, you can
-    // use <App /> here rather than require() a <NextApp />.
+  module.hot.accept('./components/layout/App', () => {
     ReactDOM.render(
       <AppContainer>
-         <App />
+        <Provider uiStore={uiStore} postStore={postStore}>
+          <App/>
+        </Provider>
       </AppContainer>,
       rootEl
     );
