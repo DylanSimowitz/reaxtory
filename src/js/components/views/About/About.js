@@ -10,7 +10,6 @@ class About extends Component {
     this.animateSVG()
   }
   animateSVG = () => {
-    console.log(this.svg);
     this.svg.animate([
       {transform: 'translateX(50px)'},
       {transform: 'translateX(0px)'}

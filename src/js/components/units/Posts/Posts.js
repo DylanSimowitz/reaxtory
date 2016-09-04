@@ -3,9 +3,9 @@ import Post from '../Post'
 
 export default class Posts extends Component {
   render() {
-    const {posts} = this.props
+    const {posts,className} = this.props
     return (
-        <div>
+        <div className={className}>
           {
             posts.map(post => {
               return <Post key={post.id} post={post}/>

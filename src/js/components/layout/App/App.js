@@ -4,6 +4,8 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import Layout from '../Layout';
 import Home from 'components/views/Home';
 import About from 'components/views/About';
+
+import fontAwesome from 'font-awesome/css/font-awesome.css';
 import styles from './App.css';
 
 export default class App extends Component {

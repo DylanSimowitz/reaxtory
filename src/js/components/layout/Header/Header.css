@@ -1,24 +1,60 @@
+@import 'variables.css';
 .navigation {
-  background-color: #444;
-  font-family: 'Bungee', cursive;
-  font-size: 2em;
-  ul {
-    margin: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    li {
-
-    }
-  }
+  background-color: $secondary;
+  padding: 5px 0;
 }
-.link {
-  color: #d9c301;
+.menu {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0;
+  font-size: 1.25rem;
+}
+.menu * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0.5em 1.2em;
+  padding: 0;
+}
+.menu a {
+  padding: 0 0.6em;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
   text-decoration: none;
-  &:hover {
-    color: green;
-  }
 }
-.active {
-  text-decoration: underline;
+.menu a:before,
+.menu a:after {
+  width: 3px;
+  height: 0;
+  position: absolute;
+  content: '';
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  background-color: rgba(236, 188, 46, 1);
+}
+.menu a:before {
+  bottom: 0;
+  right: 0;
+}
+.menu a:after {
+  top: 0;
+  left: 0;
+}
+.menu a:hover,
+.menu .current {
+  color: #ffffff;
+}
+.menu a:hover:before,
+.menu .current:before,
+.menu a:hover:after,
+.menu .current:after {
+  height: 100%;
 }

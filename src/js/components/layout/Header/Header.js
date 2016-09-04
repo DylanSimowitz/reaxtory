@@ -8,15 +8,15 @@ export default class Header extends Component {
     return(
       <header>
         <nav className={styles.navigation}>
-          <ul>
+          <ul className={styles.menu}>
             <li>
-              <IndexLink to="/" className={styles.link} activeClassName={styles.active}>Home</IndexLink>
+              <IndexLink to="/" activeClassName={styles.current}>Home</IndexLink>
             </li>
             <li>
-              <Link to="about" className={styles.link} activeClassName={styles.active}>About</Link>
+              <Link to="about" activeClassName={styles.current}>About</Link>
             </li>
             <li>
-              <Link to="resume" className={styles.link} activeClassName={styles.active}>Resume</Link>
+              <Link to="resume" activeClassName={styles.current}>Resume</Link>
             </li>
           </ul>
         </nav>
