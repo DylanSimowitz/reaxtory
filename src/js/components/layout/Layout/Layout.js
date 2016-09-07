@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import Loading from 'components/views/Loading';
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from 'components/layout/Header';
+import Footer from 'components/layout/Footer';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import styles from './Layout.css';
 
@@ -16,18 +16,15 @@ class Layout extends Component {
         {
           uiStore.isLoading ?
           <Loading/> :
-          <ReactCSSTransitionGroup transitionAppear={true} transitionName={{
-            enter: styles.enter,
-            enterActive: styles.enterActive,
-            leave: styles.leave,
-            leaveActive: styles.leaveActive,
-            appear: styles.enter,
-            appearActive: styles.enterActive
-          }} transitionAppearTimeout={2000} transitionEnterTimeout={2000} transitionLeaveTimeout={2000}>
-          <div>
-            {this.props.children}
-          </div>
-          </ReactCSSTransitionGroup>
+          // <ReactCSSTransitionGroup component="div" transitionName={{
+          //   enter: styles.enter,
+          //   enterActive: styles.enterActive,
+          //   leave: styles.leave,
+          //   leaveActive: styles.leaveActive,
+          // }} transitionEnterTimeout={1000} transitionLeaveTimeout={500}>
+          //   {React.cloneElement(this.props.children,{ key: this.props.location.pathname })}
+          // </ReactCSSTransitionGroup>
+          this.props.children
         }
         <Footer/>
       </div>

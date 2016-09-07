@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import Link from 'react-router/lib/Link';
 import FontAwesome from 'components/units/FontAwesome';
 import styles from './Post.css';
 
@@ -35,7 +35,8 @@ export default class Post extends Component {
         <div className={styles.hover}>
           <FontAwesome icon={this.icons[post.categories[0]]} />
         </div>
-        <a href={post.link}></a>
+        <Link to={`blog/${post.slug}`} />
+        {/* <a href={post.link}></a> */}
     </figure>
     );
   }

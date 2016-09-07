@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { Link, IndexLink } from 'react-router';
+import Link from 'react-router/lib/Link';
+import IndexLink from 'react-router/lib/IndexLink';
 import styles from './Header.css';
 
 export default class Header extends Component {

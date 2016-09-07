@@ -5,7 +5,7 @@ export default class Spinner extends Component {
   render() {
     return(
       <div className={styles.container}>
-        
+        <span>Loading</span>
       </div>
     )
   }

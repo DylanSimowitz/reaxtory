@@ -1,82 +1,57 @@
-import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import React, {Component} from 'react';
+import {inject, observer} from 'mobx-react';
+import FontAwesome from 'components/units/FontAwesome';
 import styles from './Footer.css';
 
-export default class Footer extends Component {
+@inject('uiStore')@observer
+class Footer extends Component {
   render() {
-    return(
+    const {uiStore} = this.props
+    return (
       <footer>
-
-		<h2>Contact Us</h2>
-
-		<p>Do you have a project you would like us to work on? Or perhaps a few questions?</p>
-
-		<p>Contact us and we will be more than happy to assist you.</p>
-
-		<div className="col">
-
-			<h3>Our office</h3>
-
-			<p className="phone">
-				{/* <img src="images/phone.svg" alt=""/> */}
-				+27 21 480 0430
-			</p>
-
-			<p>
-				<a href="mailto:info@ninjasforhire.co.za">info@ninjasforhire.co.za</a><br/>
-				Ninjas for Hire
-			</p>
-
-			<p>
-				34 Bree Street<br/>
-				12th Floor, The Terraces<br/>
-				Cape Town<br/>
-				8000
-			</p>
-
-		</div>
-		<div className="col">
-
-			<h3>Say hello</h3>
-
-			<div className="error"></div>
-
-			<form action="" method="get" id="contact_form">
-
-				<input type="text" name="wish" id="wish" value="" className="wish"/>
-
-				<input type="text" name="firstname" id="firstname" placeholder="Name" value=""/>
-
-				<input type="text" name="telephone" id="telephone" placeholder="Telephone" value=""/>
-
-				<input type="text" name="email" id="email" placeholder="Email" value=""/>
-
-				<textarea cols="1" rows="1" name="comment" id="comment" placeholder="Comment"></textarea>
-
-				<button>Submit</button>
-				{/* <img src="images/loader.svg" alt="" className="loader"/> */}
-
-			</form>
-
-			<div className="clearboth"></div>
-
-		</div>
-		<div className="social">
-
-			<h3>Keep connected</h3>
-
-			<a href="http://twitter.com/ninjasforhire" target="_blank">
-				{/* <img src="images/icon-tw.svg" alt=""/> */}
-				Twitter
-			</a>
-			<a href="http://www.facebook.com/pages/Ninjas-for-Hire/168474703234076" target="_blank">
-				{/* <img src="images/icon-fb.svg" alt=""/> */}
-				Facebook
-			</a>
-
-		</div>
-		<div className="clearboth"></div>
+        <h2>Contact Us</h2>
+        <p>Ready to get started on your next project?</p>
+        <p>Contact us and we will be more than happy to assist you.</p>
+        <div className="col">
+          <h3>Our office</h3>
+          <div>
+            <FontAwesome icon="phone"/>
+            <a href={`phone:${uiStore.contact.phone_number}`}>{uiStore.contact.phone_number}</a>
+          </div>
+          <div>
+            <FontAwesome icon="envelope"/>
+            <a href={`mailto:${uiStore.contact.email}`}>{uiStore.contact.email}</a>
+          </div>
+          <div>
+            <FontAwesome icon="map-marker"/>
+            <span>{uiStore.contact.address}</span>
+          </div>
+        </div>
+        <div className="col">
+          <h3>H</h3>
+          <form action="" method="get" id="contact_form">
+            <input type="text" name="wish" id="wish" value="" className="wish"/>
+            <input type="text" name="firstname" id="firstname" placeholder="Name" value=""/>
+            <input type="text" name="telephone" id="telephone" placeholder="Telephone" value=""/>
+            <input type="text" name="email" id="email" placeholder="Email" value=""/>
+            <textarea cols="1" rows="1" name="comment" id="comment" placeholder="Comment"></textarea>
+            <button>Submit</button>
+          </form>
+        </div>
+        <div className="social">
+          <h3>Keep connected</h3>
+          <FontAwesome icon="twitter"/>
+          <a href={`http://twitter.com/${uiStore.contact.twitter}`} target="_blank">
+            Twitter
+          </a>
+          <FontAwesome icon="facebook-official"/>
+          <a href={`http://facebook.com/${uiStore.contact.facebook}`} target="_blank">
+            Facebook
+          </a>
+        </div>
       </footer>
     )
   }
 }
+
+export default Footer
